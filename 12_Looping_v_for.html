@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="">
+  <title>VueJS video 12: Looping with v-for</title>
+</head>
+
+<body>
+  <style media="screen">
+
+  </style>
+
+  <div id="app">
+
+    <h1>Looping with v-for</h1>
+
+    <ul>
+        <li v-for="item, index in characters"> {{index}} {{ item }}</li>
+    </ul>
+
+    <ul>
+        <li v-for="item in ninjas"> {{ item.name}} , {{ item.age  }}  </li>
+    </ul>
+    <br><hr><br>
+
+    <div v-for="item, index in characters">
+        <h3> {{ index }} . {{ item}} </h3>
+    </div>
+
+    <br><hr><br>
+
+    <div v-for="item, index in ninjas">
+        <h3> {{ index }} . {{ item.name}} , {{item.age}} </h3>
+    </div>
+    <br><hr><br>
+
+    <div v-for="item in ninjas">
+        <div v-for="(val,key) in ninjas"></div>
+        <h3> {{ item.name}} , {{item.age}} </h3>
+    </div>
+
+    
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+          characters: ['Mario', 'Luigi', 'Yoshi', 'Browser'],
+          ninjas: [
+              {name:'Ryu', age: 25},
+              {name:'Yoshi', age: 28},
+              {name:'Ken', age: 35},
+          ]
+
+       },
+
+
+      computed: { },
+      methods: {   },
+    })
+  </script>
+</body>
+
+</html>

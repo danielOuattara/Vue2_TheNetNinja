@@ -1,0 +1,41 @@
+<template>
+  <div id="app">
+
+    <!-- <add-blog></add-blog> -->
+    <show-blog></show-blog>
+
+  </div>
+</template>
+
+
+
+<script>
+
+import addBlog from './components/addBlog.vue';
+import showBlog from './components/showBlog.vue';
+
+export default {
+  data () {
+    return {  }
+  },
+  methods: {  },
+
+  components: { 
+    'add-blog': addBlog,
+    'show-blog': showBlog
+   },
+}
+
+
+</script>
+
+
+
+<style lang="scss">
+
+body{
+    margin: 0;
+    font-family: 'Nunito SemiBold';
+}
+
+</style>

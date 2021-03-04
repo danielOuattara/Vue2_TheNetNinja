@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="">
+  <title>VueJS video 11: v-if & v-show</title>
+</head>
+
+<body>
+  <style media="screen">
+
+  </style>
+
+  <div id="app">
+
+    <h1>v-if & v-show</h1>
+
+    <button @click="error=!error">Toogle error </button>
+    <button @click="success=!success">Toogle success </button>
+
+    <!-- <p v-if="error">Hello error</p> -->
+    <!-- <p v-else-if="success">Hello success</p> -->
+    <p v-show="error">Hello error</p>
+
+    
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+          error: false,
+          success: false
+       },
+
+
+      computed: {
+        computedClasses() { }
+       },
+      methods: {   },
+    })
+  </script>
+</body>
+
+</html>

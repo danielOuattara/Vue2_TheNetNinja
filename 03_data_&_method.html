@@ -1,0 +1,65 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="">
+  <title>VueJS video 3: data et methods</title>
+</head>
+
+<body>
+  <style media="screen"> </style>
+  <div id="app">
+    <h1>Hello {{ name }}</h1>
+
+    <p> {{ job }}</p>
+    <p>  {{ greeting()}}</p>
+    <p> {{ greeting_2('Afternoon')}}</p>
+
+    <p> {{ salutation}}</p>
+
+    <p> {{ greeting_3('Afternoon')}}</p>
+
+    <p> {{ greeting_4(' in aerodynamic')}}</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        name: 'Daniel',
+        job: 'Engineer'
+      },
+
+      methods: {
+        greeting: function() {
+          return 'Good Morning'
+        },
+
+        greeting_2: function(period) {
+          return 'Good '+ period;
+        },
+
+        greeting_3() {
+          return this.job;
+        },
+
+        greeting_4: function(area) {
+          return this.job + area;
+        }
+      },
+
+      computed: {
+        salutation: function() {
+          return 'Good Morning Friends'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="">
+  <title>VueJS video 15:</title>
+</head>
+
+<body>
+  <style media="screen">
+  </style>
+
+  <h1> Mutliple Vue Instance</h1>
+
+  <div id="app-one">
+      <h2> {{ title }}</h2>
+      <p> {{ greet }} </p>
+
+      <greeting-component></greeting-component>
+      <greeting-component-again></greeting-component-again>
+
+
+  </div>
+
+  <div id="app-two">
+
+    <h2>{{ title}}</h2>
+    <p> {{greet}} </p>
+
+
+    <greeting-component></greeting-component>
+
+
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+
+
+   Vue.component("greeting-component", {
+       template:'<h2> I\'am  {{ name }} <button @click="changeName">Change name</button>  </h2>',
+       data() {
+           return {
+               name: 'Yoshi'
+           }
+       },
+
+       methods: {
+           changeName() {
+               this.name = 'Mario';
+
+           }
+       }
+
+   })
+   Vue.component("greeting-component-again", {
+       template:'<p> I\'am  {{ name }} <button @click="changeName">Change name</button>  </p>',
+       data() {
+           return {
+               name: 'Yoshi'
+           }
+       },
+
+       methods: {
+           changeName() {
+               this.name = 'Mario';
+
+           }
+       }
+
+   })
+
+   const vue_one = new Vue({
+        el: '#app-one',
+        data: {   
+            title: 'Vue App 1'
+        },
+        computed: {
+            greet() {
+                return 'Hello from Vue1'
+            }
+        },
+        methods: { }
+    })
+
+
+
+   const vue_two = new Vue({
+        el: '#app-two',
+        data: { 
+            title: 'Vue App 2'
+            },
+        computed: { 
+            greet() {
+                return 'Hello from Vue2'
+            }
+        },
+        methods: { }
+    })
+
+    // vue_two.title = "Change from outside";
+
+
+  </script>
+</body>
+
+</html>
+

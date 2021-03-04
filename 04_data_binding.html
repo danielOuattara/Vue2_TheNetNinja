@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="">
+  <title>VueJS video 4: data binding</title>
+</head>
+
+<body>
+  <style media="screen"> </style>
+  <div id="app">
+    <h1>Hello {{ name}}</h1>
+
+    <p> {{ job }}</p>
+    <p> {{ topic()}}</p>
+    <a v-bind:href='website'> Contact me</a><br>
+    <a :href='website'> Contact me again !</a><br>
+    <input type="text" v-bind:value='name'><br>
+    <input type="text" v-bind:value='job'><br>
+    <input type="text" v-on:input='inputValue = $event.target.value'>
+    <h2> {{ inputValue }}</h2>
+
+    <p v-html='websiteTag'> </p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    
+    new Vue({
+      el: '#app',
+      data: {
+        name: 'Daniel',
+        job: 'Engineer',
+        website: 'http://website.com',
+        inputValue:'',
+        websiteTag: '<a href="https://github.com/danielouattara/" target="_blank">View my work</a>'
+      },
+      methods: {
+        topic: function() {
+          return 'Aerodynamics'
+       }
+     },
+    })
+  </script>
+</body>
+
+</html>

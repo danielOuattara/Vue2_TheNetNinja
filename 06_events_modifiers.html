@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="">
+  <title>VueJS video 6: events modifiers</title>
+</head>
+
+<body>
+  <style media="screen">
+      #canvas {
+        width:       500px          ;
+        padding:     200px 20px     ;
+        text-align:  center         ;
+        border:      1px solid #333 ;
+      }
+
+  </style>
+  <div id="app">
+
+    <p> I'am {{ age }} y.o</p>
+    <button type="button" name="button" v-on:click.once='increment' >increment</button>
+    <button type="button" name="button" @click='decrement'>decrement</button><br>
+
+    <a @click.prevent href="https://github.com/danielouattara/">Link to my github page</a><br>
+
+    <a @click.prevent='click' href="https://github.com/danielouattara/">Link to my github page</a><br>
+
+    <a @click.stop @click.prevent.default href="https://github.com/danielouattara/">Link to my github page</a><br>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        age:      37,
+        children: 2 ,
+        wife:     3 ,
+        x:        0 ,
+        y:        0 ,
+
+      },
+      methods: {
+        increment() {
+          return this.age++;
+        },
+
+        decrement() {
+          return this.age--;
+        },
+
+        click() {
+         return alert("You clicked but you won't go anyway with that")
+        }
+
+     },
+    })
+  </script>
+</body>
+
+</html>

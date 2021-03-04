@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="">
+  <title>VueJS video 5: events</title>
+</head>
+
+<body>
+  <style media="screen">
+      #canvas {
+        width:       500px          ;
+        padding:     200px 20px     ;
+        text-align:  center         ;
+        border:      1px solid #333 ;
+      }
+
+  </style>
+  <div id="app">
+
+    <p> I'am {{ age }} y.o</p>
+    <button type="button" name="button" v-on:click='increment' >increment</button>
+    <button type="button" name="button" @click='decrement'>decrement</button>
+
+    <p> I have {{ children }} children</p>
+    <button type="button" name="button" v-on:dblclick='children++' v-if='children < 10'>increment</button>
+    <button type="button" name="button"  @dblclick='children--' v-show='children > 0'>decrement</button>
+
+    <p> I have {{ wife }} wife</p>
+    <button type="button" name="button" v-on:dblclick='add(1)' v-if='wife < 100'>increment</button>
+    <button type="button" name="button"  @dblclick='add(-1)' v-show='wife > 0'>decrement</button>
+
+    <div id="canvas" v-on:mousemove='updateXY'> {{ x }} , {{ y }}</div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        age:      37,
+        children: 2 ,
+        wife:     3 ,
+        x:        0 ,
+        y:        0 ,
+
+      },
+      methods: {
+        increment() {
+          return this.age++;
+        },
+
+        decrement() {
+          return this.age--;
+        },
+
+        add(inc) {
+          return this.wife += inc;
+        },
+
+        updateXY(event) {
+          console.log(event);
+          this.x = event.offsetX;
+          this.y = event.offsetY;
+        }
+     },
+    })
+  </script>
+</body>
+
+</html>

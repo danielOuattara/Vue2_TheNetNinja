@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="">
+  <title>VueJS video 13: Punchbag Game</title>
+</head>
+
+<body>
+  <style media="screen">
+
+  </style>
+
+  <h1> Mutliple Vue Instance</h1>
+
+  <div id="app-one">
+      <h2> {{ title }}</h2>
+      <p> {{greet}} </p>
+
+
+  </div>
+
+  <div id="app-two">
+
+    <h2>{{ title}}</h2>
+    <p> {{greet}} </p>
+
+    <button @click="changeVue1Title">Change Vue 1 Title</button>
+
+
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
+
+
+   const vue_one = new Vue({
+      el: '#app-one',
+      data: {   
+          title: 'Vue App 1'
+      },
+      computed: {
+          greet() {
+              return 'Hello from Vue1'
+          }
+       },
+      methods: { }
+    })
+
+
+
+   const vue_two = new Vue({
+      el: '#app-two',
+      data: { 
+        title: 'Vue App 2'
+        },
+      computed: { 
+        greet() {
+              return 'Hello from Vue2'
+          }
+      },
+      methods: {
+          changeVue1Title() {
+
+            vue_one.title = "Another Title for Vue1";
+
+          }
+       }
+    })
+
+    // vue_two.title = "Change from outside";
+
+
+  </script>
+</body>
+
+</html>
+
