@@ -43,7 +43,7 @@
      <button v-on:click="nearby=!nearby">Toggle nearby</button>
      <button v-on:click="available=!available">Toggle available</button>
 
-     <di v-bind:class="computedClasses">
+     <div v-bind:class="computedClasses">
          <span> Ryu</span>
      </div>
 
@@ -60,15 +60,12 @@
           nearby: false
 
        },
-
-
        computed: {
         computedClasses() {
             return {
                 available: this.available,
                 nearby: this.nearby
             }
-
         }
        },
        methods: {   },
