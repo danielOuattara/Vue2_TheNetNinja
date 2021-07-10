@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -16,23 +15,23 @@
   <div id="app">
     <h1>Keyboard Events</h1>
 
-    <label for="name">Name1  :</label>
+    <label for="name">Name1 :</label>
     <input type="text" name="name-2" id="name-1" v-on:input="name1 = $event.target.value">
     <span> {{ name1 }} </span>
 
-    <br/><br/>
+    <br /><br />
 
     <label for="name">Name2 :</label>
     <input type="text" name="name-2" id="name-2" v-model="name2">
     <span> {{ name2}} </span>
-    
-    <br/><br/>
-    
+
+    <br /><br />
+
     <label for="age">Age2 :</label>
     <input type="text" name="age-2" id="age-2" v-model="age2">
     <span> {{ age2 }}</span>
-    
-    <br/><br/>
+
+    <br /><br />
 
 
   </div>
@@ -41,26 +40,23 @@
   <script>
     new Vue({
       el: '#app',
-      data: { 
-          name1: '',
-          name2: '',
-          age2: ''
-       },
+      data: {
+        name1: '',
+        name2: '',
+        age2: ''
+      },
       methods: {
-        logName() {     
-
-        },
+        logName() {},
 
         logAge() {
-            console.log( "you entered your age");
-  
+          console.log("you entered your age");
         },
 
         click() {
-         return alert("You clicked but you won't go anyway with that")
+          return alert("You clicked but you won't go anyway with that")
         }
 
-     },
+      },
     })
   </script>
 </body>

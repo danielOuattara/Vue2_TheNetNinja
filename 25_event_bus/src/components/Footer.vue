@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
 import { busEvent } from './../main.js'
 export default {
 
@@ -24,8 +25,8 @@ export default {
   computed: {},
 
   created() {
-    busEvent.$on('busTitleEvent', (data)=> {
-      this.title= data;
+    busEvent.$on('busTitleEvent', data => {
+      this.title = data;
     })
   }
 }

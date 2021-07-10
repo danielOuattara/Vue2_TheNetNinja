@@ -11,36 +11,39 @@
             <textarea name="" id="" cols="80" rows="3" v-model="blog.content"></textarea>
 
             <div id="checkboxes">
+
                 <label for="">Ninjas</label>
                 <input type="checkbox" value="ninjas"  v-model="blog.categories">
+
                 <label for="">Wizards</label>
                 <input type="checkbox" value="wizards" v-model="blog.categories">
+
                 <label for="">Mario</label>
                 <input type="checkbox" value="mario"   v-model="blog.categories">
+
                 <label for="">Cheese</label>
                 <input type="checkbox" value="cheese"  v-model="blog.categories">
+                
             </div>
             
             <label for="author">Author :</label>
             <select name="author" id="author" v-model="blog.author">
-                <option  v-for="item in authors" > {{ item }}</option>
+                <option v-for="item in authors" :key="item" > {{ item }}</option>
             </select>
 
         </form>
 
         <div id="preview">
+
             <h3>Preview Blog</h3>
-
             <p> Blog tilte : {{ blog.title }}</p>
-
             <p> Blog content : {{ blog.content }} </p>
-
             <p>Blog categories</p>
             <ul>
-                <li v-for="category in blog.categories"> {{category }}</li>
+                <li v-for="category in blog.categories" :key="category"> {{category }}</li>
             </ul>
 
-            <p>Author : {{ blog.author}}</p>
+            <p>Author : {{ blog.author }}</p>
         </div>
     </div>
 </template>

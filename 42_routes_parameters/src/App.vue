@@ -1,13 +1,9 @@
 <template>
   <div id="app">
-
     <app-header></app-header>
     <router-view></router-view>
-
   </div>
 </template>
-
-
 
 <script>
 
@@ -18,10 +14,10 @@ import header from './components/header.vue';
 
 export default {
   data () {
-    return {  }
+    return {}
   },
   
-  methods: {  },
+  methods: {},
  
   components: { 
     'add-blog':   addBlog,
@@ -31,10 +27,7 @@ export default {
    },
 }
 
-
 </script>
-
-
 
 <style lang="scss">
 

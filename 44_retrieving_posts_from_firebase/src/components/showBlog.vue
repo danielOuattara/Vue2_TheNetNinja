@@ -1,11 +1,8 @@
 <template>
     <div id="show-blogs">
         <h1>All blog article</h1>
-
         <input type="text" v-model="search" placeholder="search blogs tilte for ...">
-
-        <div class="single-blog" v-for="item in filterBlogs"> 
-
+        <div class="single-blog" v-for="item, index in filterBlogs" :key='index'> 
           <router-link v-bind:to="'/blog/' + item.id">   <h2> {{ item.title | to-upperCase }}</h2> </router-link>
             <article> {{ item.content | snippet}}</article>
         </div>
@@ -13,9 +10,7 @@
 </template>
 
 <script>
-
     import searchMixin from './../mixins/searchMixin.js'
-
     export default {
         data () {
             return {
@@ -23,9 +18,7 @@
                 search:''
              }
         },
-
         computed: { },
-
         filters: {
             'to-upperCase': function(value) {
                 return value.toUpperCase()
@@ -37,8 +30,7 @@
 
             'snippet': (value) => {
                 return value.slice(0, 80) + '...';
-}
-
+            }
         },
 
         directives: {
@@ -49,9 +41,7 @@
             }
         },
         mixins: [searchMixin],
-
         methods: { },
-
         created() {
             this.$http.get("https://vue-blog-6f77f-default-rtdb.firebaseio.com/posts.json")
             .then( (data)=> {
@@ -69,9 +59,6 @@
                 }
                 // console.log(blogsArray)
                 this.blogs = blogsArray;
-
-
-
             })
             .catch()
         }
@@ -80,12 +67,9 @@
 </script>
 
 <style lang="scss">
-
 #show-blogs{
     max-width: 800px;
     margin: 0px auto;
-
-
     input {
         width: 100%;
         height: 30px;
@@ -98,11 +82,8 @@
     background: #eee;
     border-radius: 7px;
     border: 1px solid #cecece;
-
     a {
         text-decoration: none;
     }
 }
-
-
 </style>

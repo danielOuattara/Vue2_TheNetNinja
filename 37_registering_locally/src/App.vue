@@ -1,13 +1,8 @@
 <template>
   <div id="app">
-
-    <!-- <add-blog></add-blog> -->
     <show-blog></show-blog>
-
   </div>
 </template>
-
-
 
 <script>
 
@@ -26,16 +21,11 @@ export default {
    },
 }
 
-
 </script>
 
-
-
 <style lang="scss">
-
 body{
     margin: 0;
     font-family: 'Nunito SemiBold';
 }
-
 </style>

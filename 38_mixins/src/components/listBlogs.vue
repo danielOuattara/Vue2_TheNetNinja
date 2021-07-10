@@ -4,7 +4,7 @@
 
         <input type="text" v-model="search" placeholder="search blogs tilte for ...">
 
-        <div class="single-blog" v-for="item in filterBlogs"> 
+        <div class="single-blog" v-for="item, index in filterBlogs" :key='index'> 
             <h2 v-rainbow> {{ item.title | to-upperCase }}</h2>
             <h2> {{ item.title | toLowerCase }}</h2>
         </div>
@@ -13,16 +13,17 @@
 </template>
 
 <script>
-
     import searchMixin from './../mixins/searchMixin.js'
-
     export default {
+
         data () {
             return {
                 blogs: [],
                 search:''
              }
         },
+
+        mixins: [searchMixin],
 
         computed: {  },
 
@@ -48,9 +49,6 @@
                 }
             }
         },
-
-        mixins: [searchMixin],
-
         methods: { },
 
         created() {

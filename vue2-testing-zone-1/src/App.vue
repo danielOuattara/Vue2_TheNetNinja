@@ -1,46 +1,50 @@
 <template>
   <div id="app">
-
     <app-header></app-header>
-    <router-view></router-view>
-
+    <app-main v-bind:ninjas="superninjas"></app-main>
+    <app-footer></app-footer>
   </div>
 </template>
 
-
-
 <script>
-
-import addBlog from  './components/addBlog.vue';
-import showBlog from './components/showBlog.vue';
-import listBlog from './components/listBlogs.vue';
-import header from './components/header.vue';
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
+import Main   from './components/Main.vue';
 
 export default {
   data () {
-    return {  }
+    return { 
+        superninjas: [
+            { name:'Ryu'     , speciality: 'Vue Components', show:'false' } ,
+            { name:'Crystall', speciality: 'HTML Wizardry' , show:'false' } ,
+            { name:'Hitoshi' , speciality: 'Click Events'  , show:'false' } ,
+            { name:'Tango'   , speciality: 'Conditionals'  , show:'false' } ,
+            { name:'Kami'    , speciality: 'Webpack'       , show:'false' } ,
+            { name:'Yoshi'   , speciality: 'Data Diggin'   , show:'false' } ,
+        ]
+    }
   },
-  
-  methods: {  },
- 
-  components: { 
-    'add-blog':   addBlog,
-    'show-blog':  showBlog,
-    'list-blogs': listBlog,
-    'app-header': header,
-   },
+
+  methods: { },
+
+  components: {
+    'app-header': Header ,
+    'app-footer': Footer ,
+    'app-main':   Main
+  }
 }
-
-
 </script>
 
-
-
 <style lang="scss">
+  * {
 
-body{
     margin: 0;
-    font-family: 'Nunito SemiBold';
-}
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    color: blue;
+  }
 
 </style>

@@ -1,14 +1,12 @@
 <template>
     <div v-theme:column="'narrow'" id="show-blog">
         <h1>All blog article</h1>
-        <div class="single-blog" v-for="item in blogs"> 
+        <div class="single-blog" v-for="item, index in blogs" :key="index"> 
             <h2 v-rainbow> {{ item.title }}</h2>
             <article> {{ item.body}}</article>
         </div>
     </div>
 </template>
-
-
 <script>
 
     export default {
@@ -41,6 +39,6 @@
     padding: 20px;
     margin: 20px 0;
     box-sizing: border-box;
-    background: #eee;
+    background: #ffffff;
 }
 </style>

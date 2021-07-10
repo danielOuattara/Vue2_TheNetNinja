@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -9,9 +8,7 @@
 </head>
 
 <body>
-  <style media="screen">
-
-  </style>
+  <style media="screen"></style>
 
   <div id="app">
 
@@ -20,11 +17,24 @@
     <button @click="error=!error">Toogle error </button>
     <button @click="success=!success">Toogle success </button>
 
-    <!-- <p v-if="error">Hello error</p> -->
-    <!-- <p v-else-if="success">Hello success</p> -->
-    <p v-show="error">Hello error</p>
+    <p v-if="error">Hello error</p>
+    <p v-else-if="success">Hello success</p> <br />
 
-    
+    <br>
+    <hr><br>
+
+    <button @click="vraie=!vraie"> Vraie ou Faux </button>
+    <p v-if="vraie">Vraie !</p>
+    <p v-else> Faux </p> <br />
+
+    <br>
+    <hr><br>
+
+    <button @click="value=!value">v-show </button>
+    <p v-show="value">v-show in Work</p>
+
+
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -32,15 +42,17 @@
     new Vue({
       el: '#app',
       data: {
-          error: false,
-          success: false
-       },
+        error: false,
+        success: false,
+        value: false,
+        vraie: false
+      },
 
 
       computed: {
-        computedClasses() { }
-       },
-      methods: {   },
+        computedClasses() {}
+      },
+      methods: {},
     })
   </script>
 </body>

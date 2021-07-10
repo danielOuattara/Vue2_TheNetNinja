@@ -1,111 +1,144 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="">
-  <title>VueJS video 15:</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="">
+    <title>VueJS video 15:</title>
 </head>
 
 <body>
-  <style media="screen">
-  </style>
+    <style media="screen">
+        * {
+            /* padding: 0; */
+            /* margin: 0; */
+            box-sizing: border-box;
+        }
 
-  <h1> Mutliple Vue Instance</h1>
+        #app-one {
+            margin: 20px;
+            border: 2px solid green;
+            padding: 30px;
+            border-radius: 10px;
+        }
 
-  <div id="app-one">
-      <h2> {{ title }}</h2>
-      <p> {{ greet }} </p>
+        #app-two {
+            margin: 20px;
+            border: 2px solid orange;
+            padding: 30px;
+            border-radius: 10px;
+        }
 
-      <greeting-component></greeting-component>
-      <greeting-component-again></greeting-component-again>
+        #greeting4 {
+            background-color: rgba(89, 0, 255, 0.22);
+            border-radius: 5px;
+            padding: 10px;
+        }
 
+        #greeting4 button {
+            padding: 5px;
+            border: none;
+            /* border: 1px solid violet; */
+            background-color: blueviolet;
+            color: white;
+            border-radius: 7px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
 
-  </div>
+        /* #component-one {
+            margin: 20px
+        } */
+    </style>
 
-  <div id="app-two">
+    <h1> Introduction to components</h1>
 
-    <h2>{{ title}}</h2>
-    <p> {{greet}} </p>
+    <div id="app-one">
 
+        <h1> {{ title }}</h1>
+        <p> {{ greet }} </p>
 
-    <greeting-component></greeting-component>
+        <greeting-component style="background-color: rgba(255, 0, 0, 0.22);"></greeting-component>
+        <greeting-component2 style="background-color: rgba(0, 0, 255, 0.22);"></greeting-component2>
+        <greeting-component style="background-color: rgba(30, 255, 0, 0.22);"></greeting-component>
+        <greeting-component2 id="greeting4"></greeting-component2>
 
+    </div>
 
+    <div id="app-two">
 
-  </div>
+        <h1>{{ title }}</h1>
+        <p> {{ greet }} </p>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  <script>
+        <!-- <greeting-component style="background-color: rgba(255, 0, 0, 0.22);"></greeting-component> -->
 
+    </div>
 
-   Vue.component("greeting-component", {
-       template:'<h2> I\'am  {{ name }} <button @click="changeName">Change name</button>  </h2>',
-       data() {
-           return {
-               name: 'Yoshi'
-           }
-       },
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
-       methods: {
-           changeName() {
-               this.name = 'Mario';
+    <script>
+        Vue.component("greeting-component", {
+            template: `<div>
+                            <h2> I\'am {{ name }} <button @click="changeName">Change name</button> </h2>
+                            <h2> Test </h2>
+                       </div>`,
 
-           }
-       }
-
-   })
-   Vue.component("greeting-component-again", {
-       template:'<p> I\'am  {{ name }} <button @click="changeName">Change name</button>  </p>',
-       data() {
-           return {
-               name: 'Yoshi'
-           }
-       },
-
-       methods: {
-           changeName() {
-               this.name = 'Mario';
-
-           }
-       }
-
-   })
-
-   const vue_one = new Vue({
-        el: '#app-one',
-        data: {   
-            title: 'Vue App 1'
-        },
-        computed: {
-            greet() {
-                return 'Hello from Vue1'
-            }
-        },
-        methods: { }
-    })
-
-
-
-   const vue_two = new Vue({
-        el: '#app-two',
-        data: { 
-            title: 'Vue App 2'
+            data() {
+                return {
+                    name: 'Yoshi'
+                }
             },
-        computed: { 
-            greet() {
-                return 'Hello from Vue2'
+
+            methods: {
+                changeName() {
+                    this.name = 'Mario';
+                }
             }
-        },
-        methods: { }
-    })
+        })
 
-    // vue_two.title = "Change from outside";
+        Vue.component("greeting-component2", {
+            template: '<p> I\'am  {{ name }} <button @click="changeName">Change name</button>  </p>',
+            data() {
+                return {
+                    name: 'Yoshi'
+                }
+            },
 
+            methods: {
+                changeName() {
+                    this.name = 'John Doe';
+                }
+            }
+        })
 
-  </script>
+        const vue_one = new Vue({
+            el: '#app-one',
+            data: {
+                title: 'Vue App 1'
+            },
+            computed: {
+                greet() {
+                    return 'Hello from Vue1'
+                }
+            },
+            methods: {}
+        })
+
+        const vue_two = new Vue({
+            el: '#app-two',
+            data: {
+                title: 'Vue App 2'
+            },
+            computed: {
+                greet() {
+                    return 'Hello from Vue2'
+                }
+            },
+            methods: {}
+        })
+
+        // vue_two.title = "Change from outside";
+    </script>
 </body>
 
 </html>
-

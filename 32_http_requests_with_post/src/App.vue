@@ -1,12 +1,8 @@
 <template>
   <div id="app">
-
     <add-blog></add-blog>
-
   </div>
 </template>
-
-
 
 <script>
 
@@ -16,19 +12,15 @@ export default {
   data () {
     return {  }
   },
+
   methods: {  },
 
   components: { 
     'add-blog': addBlog,
    },
-
-
 }
 
-
 </script>
-
-
 
 <style lang="scss">
 

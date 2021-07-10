@@ -1,10 +1,16 @@
+// Dynamique component
+// --------------------
+
 <template>
   <div id="app">
 
     <!-- <form-helper></form-helper> -->
+    <!-- <form-one></form-one> -->
+    <!-- <form-two></form-two> -->
+    
+    <!-- <component :is="form-one"></component> -->
+    <!-- <component :is="form-two"></component> -->
 
-    <!-- <form-one></form-one>
-    <form-two></form-two> -->
     <keep-alive>
     <component v-bind:is="component"></component>
     </keep-alive>

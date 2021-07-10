@@ -1,11 +1,17 @@
 <template>
   <div id="app">
-    <form-helper>
-      <h2 slot="title">I am the slot title</h2>
-      <h2 slot="dynamic-title"> {{ title }} </h2>
-      <p slot="paragraph"> Paragraph text for the slot</p>
+      <h2>I am a title</h2>
+      <h2> {{ title }} </h2>
+      <p> Paragraph text</p>
 
-    </form-helper>
+      <hr>
+
+      <form-helper>
+        <h2 slot="title">I am the slot title from App.vue</h2>
+        <h2 slot="dynamic-title"> {{ title }}</h2>
+        <p slot="paragraph"> Paragraph text for the slot from App.vue</p>
+        <p slot="paragraph"> Paragraph text for the slot from App.vue</p>
+      </form-helper> 
   </div>
 </template>
 
@@ -14,6 +20,11 @@
 import formHelper from './components/formHelper.vue'
 
 export default {
+
+  components: {
+    'form-helper': formHelper ,
+   },
+
   data () {
     return { 
       title: "I am a dynamic title "
@@ -22,24 +33,34 @@ export default {
 
   methods: {  },
 
-  components: {
-    'form-helper': formHelper ,
-   }
+
 }
 </script>
 
 <style lang="scss">
 
-  //   #slot-title {
-  //       color: green;
-  //   }
+    #app {
+      border: 2px solid green;
+      border-radius: 10px;
+      padding: 30px;
+      margin: 30px;
+    }
 
-  //  [slot=p-1] {
-  //     color: blue
-  //   }
 
-  //  p[slot=p-2] {
-  //     color: blue
-  //   }
+    #slot-title {
+        color: green;
+    }
+
+   [slot=p-1] {
+      color: blue
+    }
+
+   p[slot=p-2] {
+      color: blue
+    }
+
+    h2[slot="dynamic-title"] {
+      color: red;
+    }
 
 </style>

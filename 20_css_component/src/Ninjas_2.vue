@@ -1,16 +1,11 @@
 
 <template>
-<div>
-  <h1> List of Real Ninjas</h1>
-  <ul>
-    <li v-for="ninja in ninjas"> {{ ninja }} </li>
-</ul>
-
-
-
-
-</div>
-
+  <div>
+    <h1> List of Real Ninjas</h1>
+    <ul>
+      <li v-for="ninja in ninjas" :key="ninja"> {{ ninja }} </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -28,8 +23,7 @@ export default {
 <style scoped lang="scss">
 
     h1 {
-      color: green;
-
+      color: rgb(174, 174, 6);
     }
 
 </style>

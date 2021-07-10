@@ -18,7 +18,6 @@ export default {
 
   components: {
     'app-ninjas-2': Ninjas_2,
-
   },
   methods: { },
 
@@ -29,7 +28,7 @@ export default {
 <style lang="scss">
 
   h1 {
-    color: blue;
+    color: purple;
   }
 
 </style>

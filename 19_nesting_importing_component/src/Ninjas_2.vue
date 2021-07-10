@@ -1,8 +1,11 @@
 
 <template>
-<ul>
-    <li v-for="ninja in ninjas"> {{ ninja }} </li>
-</ul>
+<div>
+    <h2>Locally registered component</h2>
+    <ul>
+      <li v-for="ninja in ninjas" :key=ninja> {{ ninja }} </li>
+  </ul>
+</div>
 </template>
 
 <script>
@@ -17,6 +20,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"> </style>

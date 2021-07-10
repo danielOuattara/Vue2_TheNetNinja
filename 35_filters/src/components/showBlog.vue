@@ -1,10 +1,10 @@
 <template>
     <div id="show-blog">
         <h1>All blog articles</h1>
-        <div class="single-blog" v-for="item in blogs"> 
+        <div class="single-blog" v-for="item, index in blogs" :key='index'> 
 
             <h2> {{ item.title | to-upperCase }}</h2>
-            <article> {{ item.body | snippet}}</article>
+            <article> {{ item.body | snippetOfArticle}}</article>
         </div>
     </div>
 </template>

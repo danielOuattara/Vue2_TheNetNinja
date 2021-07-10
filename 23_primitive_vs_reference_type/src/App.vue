@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <app-header v-bind:title="title"></app-header>
+    <app-header v-bind:title="rootTitle"></app-header>
     <app-main v-bind:ninjas="ninjas"></app-main>
     <hr/>
-    <app-footer v-bind:title="title"></app-footer>
+    <!-- <app-main v-bind:ninjas="ninjas"></app-main> -->
+
+    <app-footer v-bind:title="rootTitle"></app-footer>
   </div>
 </template>
 
@@ -24,7 +26,7 @@ export default {
             { name:'Kami'    , speciality: 'Webpack'       , show:'false' } ,
             { name:'Yoshi'   , speciality: 'Data Diggin'   , show:'false' } ,
         ],
-        title: "Vue and Ninjas"
+        rootTitle: "Vue and Ninjas"
     }
   },
 

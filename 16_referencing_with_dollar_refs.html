@@ -1,58 +1,50 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="">
-  <title>VueJS video 15:</title>
+  <title>VueJS video 16:</title>
 </head>
 
 <body>
-  <style media="screen">
-  </style>
+  <style media="screen"></style>
 
   <h1> Referencing with $refs</h1>
 
   <div id="app">
 
-    <input type="text" name="" id="" ref='input'>
-    <button  @click="readRefs" type="submit">Submit</button>
-
+    <input type="text" ref='input'>
+    <button @click="readRefs" type="submit">Submit</button>
     <p> Your favoritefood is : {{ output }}</p>
-
-    <div ref="test">Hello World</div>
-
-
-
+    <h3 ref="test">Hello World</h3>
+    <p ref="melon">Hello World </p>
+    <p>{{greet}}</p>
+  </div>
   </div>
 
-
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
   <script>
-
-
-   new Vue({
-        el: '#app',
-        data: {   
-            output: 'Your fav food'
-         },
-        computed: {
-            greet() {
-                return 'Hello from Vue1'
-            }
-        },
-        methods: { 
-            readRefs() {
-               console.log(this.$refs.test.innerText);
-               this.output = this.$refs.input.value;
-            }
+    new Vue({
+      el: '#app',
+      data: {
+        output: ''
+      },
+      computed: {
+        greet() {
+          return 'Hello from Vue1'
         }
+      },
+      methods: {
+        readRefs() {
+          console.log(this.$refs)
+          console.log(this.$refs.test.innerText);
+          this.output = this.$refs.input.value;
+        }
+      }
     })
-
-
   </script>
 </body>
 
 </html>
-

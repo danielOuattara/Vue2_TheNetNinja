@@ -2,7 +2,7 @@
 
     <div id="ninjas">
         <ul>
-            <li v-for="ninja in ninjas" @click="ninja.show=!ninja.show">
+            <li v-for="(ninja,index) in ninjas" @click="ninja.show=!ninja.show" :key="index">
                 <h2> {{ ninja.name }}</h2>
                 <h3 v-show="ninja.show"> {{ ninja.speciality }}</h3>
             </li>
@@ -40,7 +40,6 @@
 
             deleteNinja() {
                 this.ninjas.pop()
-
             }
 
         },

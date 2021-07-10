@@ -1,9 +1,6 @@
 <template>
     <div id="add-blog">
 
-
-        <!-- <h2>Add a new Blog Post 1</h2>
-
         <form action="">
             <label for="">Blog Title :</label>
             <input type="text" required v-model="title_1"/> 
@@ -18,28 +15,27 @@
             <p> Blog content : {{ content_1 }} </p>
         </div> -->
 
-
-
-
         <h2>Add a new Blog Post 2</h2>
 
         <form action="">
             <label for="">Blog Title :</label>
-            <input type="text" required v-model="blog.title"/> 
+            <input type="text" required v-model.lazy="blog.title"/> 
 
             <label for="">Blog Content :</label>
-            <textarea name="" id="" cols="80" rows="3" v-model="blog.content"></textarea>
+            <textarea name="" id="" cols="80" rows="3" v-model.lazy="blog.content"></textarea>
 
             <div id="checkboxes">
                 <label for="">Ninjas</label>
                 <input type="checkbox" value="ninjas" v-model="blog.categories">
+
                 <label for="">Wizards</label>
                 <input type="checkbox" value="wizards" v-model="blog.categories">
+
                 <label for="">Mario</label>
                 <input type="checkbox" value="mario" v-model="blog.categories">
+
                 <label for="">Cheese</label>
                 <input type="checkbox" value="cheese" v-model="blog.categories">
-     
             </div>
         </form>
 
@@ -49,34 +45,25 @@
             <p> Blog content : {{ blog.content }} </p>
             <p>Blog categories</p>
             <ul>
-                <li v-for="category in blog.categories"> {{category }}</li>
+                <li v-for="category in blog.categories" :key="category"> {{ category }}</li>
             </ul>
         </div>
     </div>
 </template>
 
-
-
 <script>
-
     export default {
         data () {
             return { 
                 blog: {
                     title:"",
                     content:"",
-                    categories: []
+                    categories: [],
                 },
             }
         }
     }
-
 </script>
-
-
-
-
-
 
 <style>
 #add-blog *{

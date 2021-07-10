@@ -1,8 +1,6 @@
 <template>
     <header>
         <h1 @click="changeTitle"> {{ title }}</h1>
-        
-        
     </header>
 </template>
 
@@ -40,6 +38,9 @@ export default {
   header {
       background: lightgreen;
       padding: 30px;
+      &:hover {
+        cursor: pointer;
+      }
   }
 
   h1 {

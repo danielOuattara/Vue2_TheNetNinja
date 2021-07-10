@@ -13,17 +13,20 @@
             <div id="checkboxes">
                 <label for="">Ninjas</label>
                 <input type="checkbox" value="ninjas"  v-model="blog.categories">
+
                 <label for="">Wizards</label>
                 <input type="checkbox" value="wizards" v-model="blog.categories">
+
                 <label for="">Mario</label>
                 <input type="checkbox" value="mario"   v-model="blog.categories">
+                
                 <label for="">Cheese</label>
                 <input type="checkbox" value="cheese"  v-model="blog.categories">
             </div>
             
             <label for="author">Author :</label>
             <select name="author" id="author" v-model="blog.author">
-                <option  v-for="item in authors" > {{ item }}</option>
+                <option  v-for="item in authors" :key="item"> {{ item }}</option>
             </select>
 
             <button @click.prevent="post">Submit</button>
@@ -43,7 +46,7 @@
 
             <p>Blog categories</p>
             <ul>
-                <li v-for="category in blog.categories"> {{category }}</li>
+                <li v-for="category in blog.categories" :key="category"> {{category }}</li>
             </ul>
 
             <p>Author : {{ blog.author}}</p>
@@ -89,35 +92,35 @@
 
 
 <style>
-#add-blog *{
-    box-sizing: border-box;
-}
-#add-blog{
-    margin: 20px auto;
-    max-width: 500px;
-}
-label{
-    display: block;
-    margin: 20px 0 10px;
-}
-input[type="text"], textarea{
-    display: block;
-    width: 100%;
-    padding: 8px;
-}
-#preview{
-    padding: 10px 20px;
-    border: 1px dotted #ccc;
-    margin: 30px 0;
-}
-h3{
-    margin-top: 10px;
-}
-#checkboxes input{
-    display: inline-block;
-    margin-right: 10px;
-}
-#checkboxes label{
-    display: inline-block;
-}
+    #add-blog *{
+        box-sizing: border-box;
+    }
+    #add-blog{
+        margin: 20px auto;
+        max-width: 500px;
+    }
+    label{
+        display: block;
+        margin: 20px 0 10px;
+    }
+    input[type="text"], textarea{
+        display: block;
+        width: 100%;
+        padding: 8px;
+    }
+    #preview{
+        padding: 10px 20px;
+        border: 1px dotted #ccc;
+        margin: 30px 0;
+    }
+    h3{
+        margin-top: 10px;
+    }
+    #checkboxes input{
+        display: inline-block;
+        margin-right: 10px;
+    }
+    #checkboxes label{
+        display: inline-block;
+    }
 </style>

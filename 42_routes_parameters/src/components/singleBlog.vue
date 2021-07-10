@@ -3,13 +3,10 @@
         <h1> {{ blog.title }} </h1>
         <article> {{  blog.body }}</article>
     </div>
-    
 </template>
-
 
 <script>
 export default {
-
     data() {
         return {
             id: this.$route.params.id,
@@ -25,11 +22,8 @@ export default {
         })
         .catch()
     }
-    
 }
 </script>
-
- 
 
 <style lang="scss" scoped>
 

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <app-header v-bind:title="title" v-on:changeTitleEvent="updateTitle($event)"></app-header>
-    <app-main v-bind:ninjas="ninjas"></app-main>
+    <app-main v-bind:ninjas="superninjas"></app-main>
     <app-footer v-bind:title="title"></app-footer>
   </div>
 </template>
@@ -11,11 +11,17 @@ import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 import Main   from './components/Main.vue';
 
-
 export default {
+
+    components: {
+    'app-header': Header ,
+    'app-footer': Footer ,
+    'app-main':   Main
+  },
+  
   data () {
     return { 
-        ninjas: [
+        superninjas: [
             { name:'Ryu'     , speciality: 'Vue Components', show:'false' } ,
             { name:'Crystall', speciality: 'HTML Wizardry' , show:'false' } ,
             { name:'Hitoshi' , speciality: 'Click Events'  , show:'false' } ,
@@ -31,14 +37,9 @@ export default {
     updateTitle(value) {
       this.title = value
     }
+  },
 
-   },
 
-  components: {
-    'app-header': Header ,
-    'app-footer': Footer ,
-    'app-main':   Main
-  }
 }
 </script>
 

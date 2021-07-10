@@ -1,13 +1,12 @@
 <template>
     <div id="show-blogs">
         <h1>All blog article</h1>
-
         <input type="text" v-model="search" placeholder="search blogs tilte for ...">
-
-        <div class="single-blog" v-for="item in filterBlogs"> 
-
-          <router-link v-bind:to="'/blog/' + item.id">   <h2> {{ item.title | to-upperCase }}</h2> </router-link>
-            <article> {{ item.body | snippet}}</article>
+        <div class="single-blog" v-for="blog, index in filterBlogs" :key="index"> 
+          <router-link v-bind:to="'/blog/' + blog.id"> 
+            <h2> {{ blog.title | to-upperCase }}</h2> 
+          </router-link>
+            <article> {{ blog.body | snippet}}</article>
         </div>
     </div>
 </template>
@@ -15,7 +14,6 @@
 <script>
 
     import searchMixin from './../mixins/searchMixin.js'
-
     export default {
         data () {
             return {
@@ -23,9 +21,7 @@
                 search:''
              }
         },
-
         computed: { },
-
         filters: {
             'to-upperCase': function(value) {
                 return value.toUpperCase()
@@ -37,10 +33,9 @@
 
             'snippet': (value) => {
                 return value.slice(0, 80) + '...';
-}
-
+            }
         },
-
+        
         directives: {
             'rainbow': {
                 bind(el, binding, vnode) {

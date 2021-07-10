@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-
 export const busEvent = new Vue();
 
 new Vue({

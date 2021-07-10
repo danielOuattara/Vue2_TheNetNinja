@@ -1,15 +1,17 @@
 <template>
     <div id="add-blog">
 
-
+        <!-- ------------------------------------------------------------- -->
+        
         <h2>Add a new Blog Post 1</h2>
+        <form >
+            <label for="blog-title">Blog Title :</label>
+            <input type="text" name="blog-title" required v-model="title_1"/> 
 
-        <form action="">
-            <label for="">Blog Title :</label>
-            <input type="text" required v-model="title_1"/> 
-
-            <label for="">Blog Content :</label>
-            <textarea name="" id="" cols="80" rows="3" v-model="content_1"></textarea>
+            <label for="blog-1-content">Blog Content :</label>
+            <textarea name="blog-1-content" id="blog-1-content" cols="80" 
+                      rows="3" v-model="content_1">
+            </textarea>
         </form>
 
         <div id="preview">
@@ -18,17 +20,17 @@
             <p> Blog content : {{ content_1 }} </p>
         </div>
 
-
-
+        <!-- ------------------------------------------------------------- -->
 
         <h2>Add a new Blog Post 2</h2>
-
         <form action="">
-            <label for="">Blog Title :</label>
+            <label for="blog-2title">Blog Title :</label>
             <input type="text" required v-model="blog_2.title"/> 
 
-            <label for="">Blog Content :</label>
-            <textarea name="" id="" cols="80" rows="3" v-model="blog_2.content"></textarea>
+            <label for="blog-content-2">Blog Content :</label>
+            <textarea name="blog-2-content" id="blog-2-content" cols="80" 
+                      rows="3" v-model="blog_2.content">
+            </textarea>
         </form>
 
         <div id="preview">
@@ -37,17 +39,18 @@
             <p> Blog content : {{ blog_2.content }} </p>
         </div>
 
-
-
+        <!-- ------------------------------------------------------------ -->
 
         <h2>Add a new Blog Post 3</h2>
 
         <form action="">
-            <label for="">Blog Title :</label>
+            <label for="blog-3-title">Blog Title :</label>
             <input type="text" required v-model.lazy="blog_3.title"/> 
 
-            <label for="">Blog Content :</label>
-            <textarea name="" id="" cols="80" rows="3" v-model.lazy="blog_3.content"></textarea>
+            <label for="blog-3-content">Blog Content :</label>
+            <textarea name="blog-3-content" id="blog-3-content" cols="80" 
+                      rows="3" v-model.lazy="blog_3.content">
+            </textarea>
         </form>
 
         <div id="preview">
@@ -57,18 +60,15 @@
             <p> {{ blog_3.content }} </p>
         </div>
 
-
+        <!-- ------------------------------------------------------------- -->
     </div>
 </template>
-
-
 
 <script>
 
     export default {
         data () {
             return { 
-
                 title_1:"",
                 content_1:"",
 
@@ -84,15 +84,9 @@
              }
     },
     methods: {  },
-
     components: {  }
     }
 </script>
-
-
-
-
-
 
 <style>
 #add-blog *{

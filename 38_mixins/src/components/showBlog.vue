@@ -4,7 +4,7 @@
 
         <input type="text" v-model="search" placeholder="search blogs tilte for ...">
 
-        <div class="single-blog" v-for="item in filterBlogs"> 
+        <div class="single-blog" v-for="item, index in filterBlogs" :key='index'> 
             <h2 v-rainbow> {{ item.title | to-upperCase }}</h2>
             <h2> {{ item.title | toLowerCase }}</h2>
             <article> {{ item.body | snippet}}</article>
@@ -24,8 +24,10 @@
              }
         },
 
+        mixins: [searchMixin],
+        
         computed: { },
-
+        
         filters: {
             'to-upperCase': function(value) {
                 return value.toUpperCase()
@@ -38,7 +40,6 @@
             'snippet': (value) => {
                 return value.slice(0, 80) + '...';
 }
-
         },
 
         directives: {
@@ -48,7 +49,6 @@
                 }
             }
         },
-        mixins: [searchMixin],
 
         methods: { },
 

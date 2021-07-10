@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -10,20 +9,19 @@
 
 <body>
   <style media="screen">
-      #canvas {
-        width:       500px          ;
-        padding:     200px 20px     ;
-        text-align:  center         ;
-        border:      1px solid #333 ;
-      }
-
+    #canvas {
+      width: 500px;
+      padding: 200px 20px;
+      text-align: center;
+      border: 1px solid #333;
+    }
   </style>
   <div id="app">
 
     <p> I'am {{ age }} y.o</p>
 
-    <button type="button"  v-on:click.once='increment' >increment</button>
-    <button type="button"  @click='decrement'>decrement</button><br>
+    <button type="button" v-on:click.once='increment'>increment</button>
+    <button type="button" @click='decrement'>decrement</button><br>
 
     <a @click.prevent href="https://github.com/danielouattara/">Link to my github page</a><br>
 
@@ -38,11 +36,11 @@
     new Vue({
       el: '#app',
       data: {
-        age:      37,
-        children: 2 ,
-        wife:     3 ,
-        x:        0 ,
-        y:        0 ,
+        age: 37,
+        children: 2,
+        wife: 3,
+        x: 0,
+        y: 0,
 
       },
       methods: {
@@ -55,10 +53,10 @@
         },
 
         click() {
-         return alert("You clicked but you won't go anyway with that")
+          return alert("You clicked but you won't go anyway with that")
         }
 
-     },
+      },
     })
   </script>
 </body>

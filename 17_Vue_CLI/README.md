@@ -1,4 +1,4 @@
-# vue2-testing-zone-2
+# vue2-testing-zone-1
 
 > A Vue.js project
 

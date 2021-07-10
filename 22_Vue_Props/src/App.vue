@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <app-main v-bind:ninjas="ninjas"></app-main>
+    <app-main v-bind:ninjas="superninjas"></app-main>
     <app-footer></app-footer>
   </div>
 </template>
@@ -14,7 +14,7 @@ import Main   from './components/Main.vue';
 export default {
   data () {
     return { 
-        ninjas: [
+        superninjas: [
             { name:'Ryu'     , speciality: 'Vue Components', show:'false' } ,
             { name:'Crystall', speciality: 'HTML Wizardry' , show:'false' } ,
             { name:'Hitoshi' , speciality: 'Click Events'  , show:'false' } ,

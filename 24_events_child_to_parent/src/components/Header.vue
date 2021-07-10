@@ -1,8 +1,6 @@
 <template>
     <header>
         <h1 @click="changeTitle"> {{ title }}</h1>
-        
-        
     </header>
 </template>
 
@@ -23,7 +21,7 @@ export default {
 
   methods: { 
     changeTitle() {  // Avoid mutating a prop ! See 
-      this.$emit('changeTitleEvent', 'Vue & Super Ninja')
+      this.$emit('changeTitleEvent', 'Vue & Super Ninja')  // fireEvent(eventName, dataToPass)
     }
   },
 

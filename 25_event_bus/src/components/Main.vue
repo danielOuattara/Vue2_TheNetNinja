@@ -2,7 +2,7 @@
 
     <div id="ninjas">
         <ul>
-            <li v-for="ninja in ninjas" @click="ninja.show=!ninja.show">
+            <li v-for="ninja in ninjas" :key="ninja.name" @click="ninja.show=!ninja.show">
                 <h2> {{ ninja.name }}</h2>
                 <h3 v-show="ninja.show"> {{ ninja.speciality }}</h3>
             </li>
@@ -17,12 +17,9 @@
 <script>
 
     export default {
+        // props:["ninjas"], // receive props with no validation
 
-        // receive props with no validation
-        // props:["ninjas"],
-
-        // receive 'props' with validation
-        props: {
+        props: {   // receive 'props' with validation
             ninjas: {
                 type: Array,
                 required: true
@@ -40,9 +37,7 @@
 
             deleteNinja() {
                 this.ninjas.pop()
-
             }
-
         },
         computed: {} 
     }
@@ -56,7 +51,6 @@
      margin: 40px auto;
      padding: 0 20px;
      box-sizing: border-box;
-    
  }
 
  ul {
@@ -78,11 +72,8 @@
             background: rgb(100, 100, 100);
             color: #fff;
             border: 1px solid rgb(255, 255, 255);
-     }
- }
-
-
-
+        }
+    }
  }
 
 </style>

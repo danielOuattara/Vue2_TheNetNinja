@@ -2,9 +2,9 @@
 
     <div id="ninjas">
         <ul>
-            <li v-for="ninja in ninjas" @click="ninja.show=!ninja.show">
+            <li v-for="ninja in ninjas" :key="ninja.name" @click="ninja.show=!ninja.show">
                 <h2> {{ ninja.name }}</h2>
-                <h3 v-show="ninja.show"> {{ ninja.speciality }}</h3>
+                <h3 v-show="!ninja.show"> {{ ninja.speciality }}</h3>
             </li>
         </ul>
 
@@ -16,11 +16,9 @@
 
     export default {
 
-        // receive props with no validation
-        // props:["ninjas"],
+        // props:["ninjas"], // receive props with no validation
 
-        // receive 'props' with validation
-        props: {
+        props: {  // receive 'props' with validation
             ninjas: {
                 type: Array,
                 required: true

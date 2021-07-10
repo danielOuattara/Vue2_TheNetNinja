@@ -1,81 +1,84 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="">
-  <title>VueJS video 13: Punchbag Game</title>
+  <title>VueJS video 14: Multiple instance</title>
 </head>
 
 <body>
   <style media="screen">
+    * {
+      /* padding: 0; */
+      /* margin: 0; */
+      box-sizing: border-box;
+    }
 
+    #app-one {
+      margin: 20px;
+      border: 2px solid green;
+      padding: 5vh;
+      height: 20vh;
+      border-radius: 10px;
+    }
+
+    #app-two {
+      margin: 20px;
+      border: 2px solid orange;
+      padding: 5vh;
+      height: 20vh;
+      border-radius: 10px;
+    }
   </style>
 
   <h1> Mutliple Vue Instance</h1>
 
   <div id="app-one">
-      <h2> {{ title }}</h2>
-      <p> {{greet}} </p>
-
-
+    <h2> {{ title }}</h2>
+    <p> {{ greet }} </p>
   </div>
 
   <div id="app-two">
-
-    <h2>{{ title}}</h2>
-    <p> {{greet}} </p>
-
+    <h2>{{ title }}</h2>
+    <p> {{ greet }} </p>
     <button @click="changeVue1Title">Change Vue 1 Title</button>
-
-
-
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script>
-
-
-   const vue_one = new Vue({
+    const vue_one = new Vue({
       el: '#app-one',
-      data: {   
-          title: 'Vue App 1'
+      data: {
+        title: 'Vue App 1'
       },
       computed: {
-          greet() {
-              return 'Hello from Vue1'
-          }
-       },
-      methods: { }
+        greet() {
+          return 'Hello from Vue1'
+        }
+      },
+      methods: {}
     })
 
-
-
-   const vue_two = new Vue({
+    const vue_two = new Vue({
       el: '#app-two',
-      data: { 
+      data: {
         title: 'Vue App 2'
-        },
-      computed: { 
+      },
+      computed: {
         greet() {
-              return 'Hello from Vue2'
-          }
+          return 'Hello from Vue2'
+        }
       },
       methods: {
-          changeVue1Title() {
-
-            vue_one.title = "Another Title for Vue1";
-
-          }
-       }
+        changeVue1Title() {
+          vue_one.title = "Another Title for Vue1 from Vue app 2";
+        }
+      }
     })
 
     // vue_two.title = "Change from outside";
-
-
   </script>
 </body>
 
 </html>
-

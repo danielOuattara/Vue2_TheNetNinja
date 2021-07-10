@@ -1,15 +1,11 @@
 <template>
     <div id="add-blog">
-
         <h2 v-if="!submitted">Please, add a new Blog post</h2>
-
         <form v-if="!submitted" action="">
             <label for="">Blog Title :</label>
             <input type="text" required v-model="blog.title"/> 
-
             <label for="">Blog Content :</label>
             <textarea name="" id="" cols="80" rows="3" v-model="blog.content"></textarea>
-
             <div id="checkboxes">
                 <label for="">Ninjas</label>
                 <input type="checkbox" value="ninjas"  v-model="blog.categories">
@@ -20,30 +16,22 @@
                 <label for="">Cheese</label>
                 <input type="checkbox" value="cheese"  v-model="blog.categories">
             </div>
-            
             <label for="author">Author :</label>
             <select name="author" id="author" v-model="blog.author">
-                <option  v-for="item in authors" > {{ item }}</option>
+                <option v-for="item,index in authors" :key='index' > {{ item }}</option>
             </select>
-
             <button @click.prevent="post">Submit</button>
-
         </form>
-
         <div v-if="submitted">
             <h3>Thanks for your post</h3>
         </div>
-
         <div id="preview" v-if="!submitted">
             <h3>Preview Blog</h3>
-
             <p> Blog tilte : {{ blog.title }}</p>
-
             <p> Blog content : {{ blog.content }} </p>
-
             <p>Blog categories</p>
             <ul>
-                <li v-for="category in blog.categories"> {{category }}</li>
+                <li v-for="category, index in blog.categories" :key='index'> {{category }}</li>
             </ul>
 
             <p>Author : {{ blog.author}}</p>
@@ -51,9 +39,7 @@
     </div>
 </template>
 
-
 <script>
-
     export default {
         data () {
             return { 
@@ -63,7 +49,6 @@
                     categories: [],
                     author: ""
                 },
-
                 authors: ['The Net Ninja', 'Vues2JS', 'React', 'Angular'],
                 submitted: false
             }
@@ -82,8 +67,6 @@
     }
 
 </script>
-
-
 
 <style>
 #add-blog *{

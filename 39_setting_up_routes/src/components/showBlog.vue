@@ -4,7 +4,7 @@
 
         <input type="text" v-model="search" placeholder="search blogs tilte for ...">
 
-        <div class="single-blog" v-for="item in filterBlogs"> 
+        <div class="single-blog" v-for="item in filterBlogs" :key="item"> 
 
             <h2 v-rainbow> {{ item.title | to-upperCase }}</h2>
             <h2> {{ item.title | toLowerCase }}</h2>

@@ -1,3 +1,4 @@
+
 <template>
   <div id="app">
     <h1> {{ title }}</h1>
@@ -5,6 +6,7 @@
     <p> {{ greetings()}}</p>
   </div>
 </template>
+
 
 <script>
 export default {
@@ -27,5 +29,16 @@ export default {
 </script>
 
 <style lang="scss">
-
+  #app {
+    border: 1px solid blue;
+    background: rgba(247, 88, 88, 0.5);
+    padding: 20px;
+    margin: 30px;
+    border: none;
+    border-radius: 10px;
+    &:hover {
+      cursor: pointer;
+    background: rgba(247, 88, 88, 0.8);
+    }
+  } 
 </style>

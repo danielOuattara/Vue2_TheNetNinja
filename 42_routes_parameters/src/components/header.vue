@@ -6,14 +6,11 @@
             <li> <router-link to='/list' exact>List blog</router-link> </li>
         </ul>
     </nav>
-    
 </template>
 
 
-<script>
-export default {
-    
-}
+<script> 
+    export default {} 
 </script>
 
 

@@ -1,7 +1,6 @@
 <template>
     <footer>
         <p> {{ copyright }}</p>
-        
     </footer>
 </template>
 
@@ -15,13 +14,11 @@ export default {
   },
 
   methods: { },
-
   computed: {}
 }
 </script>
 
 <style lang="scss" scoped>
-
   footer {
       background: #222;
       padding: 20px;

@@ -1,21 +1,16 @@
 <template>
     <div id="show-blog">
         <h1>List Blog Titles</h1>
-
         <input type="text" v-model="search" placeholder="search blogs tilte for ...">
-
-        <div class="single-blog" v-for="item in filterBlogs"> 
+        <div class="single-blog" v-for="item, index in filterBlogs" :key="index"> 
             <h2 v-rainbow> {{ item.title | to-upperCase }}</h2>
             <h2> {{ item.title | toLowerCase }}</h2>
         </div>
     </div>
-
 </template>
 
 <script>
-
     import searchMixin from './../mixins/searchMixin.js'
-
     export default {
         data () {
             return {
@@ -23,9 +18,7 @@
                 search:''
              }
         },
-
         computed: {  },
-
         filters: {
             'to-upperCase': function(value) {
                 return value.toUpperCase()
@@ -37,10 +30,8 @@
 
             'snippet': (value) => {
                 return value.slice(0, 80) + '...';
-}
-
+            }           
         },
-
         directives: {
             'rainbow': {
                 bind(el, binding, vnode) {
@@ -50,9 +41,7 @@
         },
 
         mixins: [searchMixin],
-
         methods: { },
-
         created() {
             this.$http.get('http://jsonplaceholder.typicode.com/posts')
             .then( (data)=> {

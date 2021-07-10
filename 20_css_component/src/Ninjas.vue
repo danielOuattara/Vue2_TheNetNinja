@@ -1,6 +1,6 @@
 <template>
 <ul>
-    <li v-for="ninja in ninjas"> {{ ninja }} </li>
+    <li v-for="ninja in ninjas" :key="ninja"> {{ ninja }} </li>
 </ul>
 </template>
 
@@ -16,6 +16,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"> </style>

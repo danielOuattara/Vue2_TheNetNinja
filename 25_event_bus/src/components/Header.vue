@@ -1,12 +1,11 @@
 <template>
     <header>
         <h1 @click="changeTitle"> {{ title }}</h1>
-        
-        
     </header>
 </template>
 
 <script>
+
 import { busEvent } from './../main.js'
 export default {
   props: {
@@ -23,9 +22,16 @@ export default {
 
   methods: { 
     changeTitle() {  // 
-      this.title = 'Vue & Super Ninja using Bus Event'; 
-      busEvent.$emit('busTitleEvent', 'Vue & Super Ninja using Bus Event')
+      // this.$emit('changeTitle', 'Vue & Super Ninja using Bus Event')
+      busEvent.$emit('busTitleEvent', 'Vue & Super Ninja using Bus Event')  // (event name, data)
+      // this.title = 'Vue & Super Ninja using Bus Event';  // option 1
     }
+  },
+
+  created() {  // option 2
+    busEvent.$on('busTitleEvent', data => {
+      this.title = data;
+    })
   },
 
   computed: {}

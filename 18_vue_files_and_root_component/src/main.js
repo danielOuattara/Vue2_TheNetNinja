@@ -1,4 +1,4 @@
-import Vue from '../../20_css_component/src/node_modules/vue'
+import Vue from 'vue'
 import App from './App.vue'
 
 new Vue({

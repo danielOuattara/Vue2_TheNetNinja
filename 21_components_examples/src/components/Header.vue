@@ -1,7 +1,6 @@
 <template>
     <header>
         <h1> {{ title }}</h1>
-        
     </header>
 </template>
 
@@ -15,8 +14,7 @@ export default {
   },
 
   methods: { },
-
-  computed: {}
+  computed: { }
 }
 </script>
 

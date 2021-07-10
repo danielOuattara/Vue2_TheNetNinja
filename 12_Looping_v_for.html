@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -9,40 +8,46 @@
 </head>
 
 <body>
-  <style media="screen">
-
-  </style>
+  <style media="screen"></style>
 
   <div id="app">
 
     <h1>Looping with v-for</h1>
 
     <ul>
-        <li v-for="item, index in characters"> {{index}} {{ item }}</li>
+      <li v-for="item in characters"> {{ item }}</li>
     </ul>
 
     <ul>
-        <li v-for="item in ninjas"> {{ item.name}} , {{ item.age  }}  </li>
+      <li v-for="(index, item) in characters"> {{index}} {{ item }}</li>
     </ul>
-    <br><hr><br>
+
+    <ul>
+      <li v-for="ninja in ninjas"> {{ ninja.name}} , {{ ninja.age  }} </li>
+    </ul>
+    <br>
+    <hr><br>
 
     <div v-for="item, index in characters">
-        <h3> {{ index }} . {{ item}} </h3>
+      <h3> {{ index }} . {{ item}} </h3>
     </div>
 
-    <br><hr><br>
+    <br>
+    <hr><br>
 
     <div v-for="item, index in ninjas">
-        <h3> {{ index }} . {{ item.name}} , {{item.age}} </h3>
+      <h3> {{ index }} . {{ item.name}} , {{item.age}} </h3>
     </div>
-    <br><hr><br>
+    <br>
+    <hr><br>
 
-    <div v-for="item in ninjas">
-        <div v-for="(val,key) in ninjas"></div>
-        <h3> {{ item.name}} , {{item.age}} </h3>
-    </div>
+    <template v-for="ninja in ninjas">
+      <div v-for="(val, key) in ninja">
+        <h3> {{ key }} , {{val}} </h3>
+      </div>
+    </template>
 
-    
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -50,18 +55,23 @@
     new Vue({
       el: '#app',
       data: {
-          characters: ['Mario', 'Luigi', 'Yoshi', 'Browser'],
-          ninjas: [
-              {name:'Ryu', age: 25},
-              {name:'Yoshi', age: 28},
-              {name:'Ken', age: 35},
-          ]
-
-       },
-
-
-      computed: { },
-      methods: {   },
+        characters: ['Mario', 'Luigi', 'Yoshi', 'Browser'],
+        ninjas: [{
+            name: 'Ryu',
+            age: 25
+          },
+          {
+            name: 'Yoshi',
+            age: 28
+          },
+          {
+            name: 'Ken',
+            age: 35
+          },
+        ]
+      },
+      computed: {},
+      methods: {},
     })
   </script>
 </body>
